@@ -1,8 +1,64 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+  font-family: 'Montserrat', sans-serif;
+  background-color: #000000;
+  color: #ffffff;
 
-a {
-  color: #00B7FF;
+
+  border-color: #ffffff;
+  border-width: medium;
+}
+  /* for testing
+  border-style: solid;
+  border-color: #ffffff;
+  border-width: medium;*/
+/*---weather---*/
+.weather{
+  font-size: 35px;
+  display: inline-block;
+  border-style: solid;
+}
+.weather p{
+  margin-bottom: 0;
+  margin-top: 0;
+}
+/*--end temp---*/
+
+
+/*-----Clock------*/
+.banner{
+  border-style: solid;
+}
+.clock {
+  text-align: center;
+  float: right;
+  border-style: solid;
+}
+#MyClockDisplay {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 110px;
+}
+.subClock {
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 10px;
+  font-size: 40px;
+}
+.subClock p{
+    margin-bottom: 0;
+    margin-top: 0;
+}
+/*-----end clock-------*/
+
+/*-------Calendar------*/
+.calendar{
+  color: #a5a5a5;
+  font-size: 35px;
+  text-align: right;
+  padding-top: 0px;
+}
+.calendar p{
+  margin-top: -15px;
+  margin-bottom: 10px;
 }

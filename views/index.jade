@@ -1,5 +1,17 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+
+  div.banner
+    div.weather
+      p#location
+      p#highlow
+      
+    div.clock
+      div.time
+        div#MyClockDisplay
+        div.subClock
+          p(id="timePeriod")
+          p(id="seconds")
+      div.calendar
+        p#day

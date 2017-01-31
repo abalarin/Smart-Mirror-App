@@ -2,6 +2,10 @@ doctype html
 html
   head
     title= title
+    
+    link(href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css')
     link(rel='stylesheet', href='/stylesheets/style.css')
-  body
+    script(src="http://code.jquery.com/jquery-1.10.2.min.js").
+    script(src="/javascripts/clocks.js").
+  body(onload="showTime()")
     block content
