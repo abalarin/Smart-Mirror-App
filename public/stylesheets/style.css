@@ -14,25 +14,35 @@ body {
   border-width: medium;*/
 /*---weather---*/
 .weather{
-  font-size: 35px;
+  font-size: 40px;
+  text-align: center;
   display: inline-block;
-  border-style: solid;
 }
 .weather p{
   margin-bottom: 0;
   margin-top: 0;
 }
+#location{
+  margin-bottom: 10px;
+}
+
+#highlow {
+  font-size: 30px;
+  color: #a5a5a5;
+}
+
+#highlowp {
+  font-size: 15px;
+  color: #a5a5a5;
+}
 /*--end temp---*/
 
 
 /*-----Clock------*/
-.banner{
-  border-style: solid;
-}
 .clock {
   text-align: center;
   float: right;
-  border-style: solid;
+  margin-top: 22px;
 }
 #MyClockDisplay {
   display: inline-block;
@@ -56,7 +66,6 @@ body {
   color: #a5a5a5;
   font-size: 35px;
   text-align: right;
-  padding-top: 0px;
 }
 .calendar p{
   margin-top: -15px;

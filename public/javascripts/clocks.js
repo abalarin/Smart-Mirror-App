@@ -1,19 +1,32 @@
-Number.prototype.toFixedDown = function(digits) {
-    var re = new RegExp("(\\d+\\.\\d{" + digits + "})(\\d)"),
-        m = this.toString().match(re);
-    return m ? parseFloat(m[1]) : this.valueOf();
-};
+function showWeather(){
+  Number.prototype.toFixedDown = function(digits) {
+      var re = new RegExp("(\\d+\\.\\d{" + digits + "})(\\d)"),
+          m = this.toString().match(re);
+      return m ? parseFloat(m[1]) : this.valueOf();
+  };
 
-$.post( "http://api.openweathermap.org/data/2.5/weather?lat=41.06&lon=-74.14&appid=ecc85481de66f8c9680322d39a0ce658", function(data) {
+  $.post( "http://api.openweathermap.org/data/2.5/weather?lat=41.06&lon=-74.14&appid=ecc85481de66f8c9680322d39a0ce658", function(data) {
 
-  var tempFah = 9/5 * (data.main.temp - 273) + 32;
-  var high = 9/5 * (data.main.temp_max - 273) + 32;
-  var low = 9/5 * (data.main.temp_min - 273) + 32;
+    var tempFah = 9/5 * (data.main.temp - 273) + 32;
+    var high = 9/5 * (data.main.temp_max - 273) + 32;
+    var low = 9/5 * (data.main.temp_min - 273) + 32;
 
-  document.getElementById("location").innerText = data.name + " "+ tempFah.toFixedDown(1) + "°F";
-  document.getElementById("highlow").innerText = low.toFixedDown(1) + "°F - " + high.toFixedDown(1) + "°F";
-  console.log(data);
-})
+    document.getElementById("location").innerText = data.name + " "+ tempFah.toFixedDown(1) + "°F";
+    document.getElementById("highlow").innerText = low.toFixedDown(1) + "°F - " + high.toFixedDown(1) + "°F";
+
+    var sunset = new Date(data.sys.sunset*1000).getHours();
+    var sunrise = new Date(data.sys.sunrise*1000).getHours();
+    var currentTime = new Date().getHours();
+
+    if(sunset > currentTime)
+      document.getElementById("timeImg").src="../images/sun.png";
+    else if(currentTime > sunrise )
+      document.getElementById("timeImg").src="../images/moonWhite.png";
+    // Will display time in 10:30:23 format
+    //var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+    console.log(data);
+  });
+}
 
 
 function getTime(date){
@@ -103,5 +116,6 @@ function showTime(){
 
   document.getElementById("day").innerText = getDay(date) + " - " + getMonth(date) + " " + date.getDate();
 
+  showWeather();
   setTimeout(showTime, 1000);
 }
